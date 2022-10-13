@@ -233,7 +233,7 @@ static int32_t encodeLatLon(double LatLon_data)
 * @param Alt_data Altitude to encode (in meters)
 * @return Encoded Altitude
 */
-static uint16_t encodeAltitude(float Alt_data)
+uint16_t encodeAltitude(float Alt_data)
 {
     return (uint16_t) intRangeMax( (int) ((Alt_data + (float) ALT_ADDER) / ALT_DIV), 0, UINT16_MAX);
 }

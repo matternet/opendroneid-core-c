@@ -28,13 +28,13 @@ extern "C" {
  * This implementation is compliant with the:
  *   - ASTM F3411 Specification for Remote ID and Tracking
  *   - ASD-STAN prEN 4709-002 Direct Remote Identification
- * 
+ *
  * Since the strategy of the standardization for drone ID has been to not break
  * backwards compatibility when adding new functionality, no attempt in this
  * implementation is made to verify the version number when decoding messages.
  * It is assumed that newer versions can be decoded but some data elements
  * might be missing in the output.
- * 
+ *
  * The following protocol versions have been in use:
  * 0: ASTM F3411-19. Published Feb 14, 2020. https://www.astm.org/f3411-19.html
  * 1: ASD-STAN prEN 4709-002 P1. Published 31-Oct-2021. http://asd-stan.org/downloads/asd-stan-pren-4709-002-p1/
@@ -615,6 +615,9 @@ typedef struct ODID_MessagePack_data {
 
     ODID_Message_encoded Messages[ODID_PACK_MAX_MESSAGES];
 } ODID_MessagePack_data;
+
+// Helpers
+uint16_t encodeAltitude(float Alt_data);
 
 // API Calls
 void odid_initBasicIDData(ODID_BasicID_data *data);
